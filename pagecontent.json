@@ -1,4 +1,10 @@
 {
-    "title": "asdfdfs",
-    "description": "Shop asdfsf"
+    "title": "Youna's Bakery",
+    "description": "Yummy delicious goods",
+    "items": {
+        "STRAWBERRY SHORTCAKE": "$23.00",
+        "TIRAMISU": "$20.00",
+        "CHEESECAKE": "$22.00",
+        "CARROT CAKE": "$23.00"
+    }
 }
