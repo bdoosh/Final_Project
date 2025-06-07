@@ -1,6 +1,7 @@
 import tkinter as tk 
 from tkinter import ttk
 import backenddata as bed
+import htmlgenerator as htmlfile
 import json
 
 
@@ -214,7 +215,9 @@ class MenuEditor:
         layout.update({"title": self.getTitle()}) # Add title to layout
         layout.update({"description": self.getDescription()}) # Add description to layout
         layout.update({"items": self.item_list})  # Add item list to layout
-        bed.createJSON(layout)
+        bed.createJSON(layout) # Save layout to JSON file
+        htmlfile.WebPage(layout)  # Generate HTML file with the updated layout
+
 
     def load(self):
         try:
@@ -231,10 +234,14 @@ class MenuEditor:
         self.title_label.config(text=layout.get("title"))
         self.description_label.config(text=layout.get("description"))
         
+        for item in self.display_items.get_children(): # Clear previous items displayed
+            self.display_items.delete(item)
+            
         for item, price in layout.get("items", {}).items():
             self.display_items.insert("", "end", values=(item, price))
         
         self.item_list = layout.get("items", {}) # Restore item list from loaded data
+        
         
     # Get title and description from labels
     def getTitle(self):
