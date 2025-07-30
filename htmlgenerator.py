@@ -39,7 +39,7 @@ class WebPage:
         # Write html content to page
         self.page.write("<!DOCTYPE html>\n<html lang='en'>\n<head>\n" +
                         "    <meta charset='UTF-8'>\n" +
-                        "    <link href='style.css' rel='stylesheet' type='text/css'>\n\n" +
+                        "   <link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">\n\n" +
                         f"    {self.page_title}\n" +
                         "</head>\n<body style='font-family: Arial'>\n" +
                         "    <div style='text-align: center; border-style: solid; border: width 3px; margin-top: 20px; padding: 20px;'>\n" +

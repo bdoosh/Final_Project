@@ -14,8 +14,13 @@ def run_server(host, port):
         request = connection.recv(1024).decode('utf-8')
         string_list = request.split(' ')
         
-        requested_file = string_list[1]
+        if len(string_list) < 2: # Check if request is valid
+            print("Invalid request received.")
+            connection.close()
+            continue
         
+        requested_file = string_list[1]
+
         print(f"Requested file: {requested_file}")
         my_file = requested_file.split('?')[0]  # Get the file name from request
         my_file = my_file.lstrip('/')
